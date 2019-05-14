@@ -1,0 +1,48 @@
+BODY {
+	FONT-SIZE: 12px; BACKGROUND: url(../images/GSL3.0_index/bg.jpg) repeat-x; MARGIN: 0px auto; FONT-FAMILY: ËÎÌו, Helvetica, sans-serif; TEXT-ALIGN: center
+}
+DIV {
+	MARGIN: 0px auto
+}
+A:link {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #0000ff; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #990000; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #990000; TEXT-DECORATION: none
+}
+#main {
+	MARGIN-TOP: 0px; FLOAT: left; MARGIN-LEFT: 0px; WIDTH: 1003px
+}
+#main_table {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; MARGIN-LEFT: 0px; WIDTH: 1003px
+}
+#bottom_table {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; MARGIN-LEFT: 0px; WIDTH: 269px; HEIGHT: 274px
+}
+#login_table {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; MARGIN-LEFT: 0px; VERTICAL-ALIGN: top; WIDTH: 500px; HEIGHT: 270px; TEXT-ALIGN: left
+}
+#login_div {
+	MARGIN-TOP: 0px; FONT-SIZE: 12px; MARGIN-LEFT: 0px; VERTICAL-ALIGN: top; WIDTH: 508px; HEIGHT: 274px; TEXT-ALIGN: left
+}
+#left2 {
+	BACKGROUND: url(../images/GSL3.0_index/bottom2.jpg) no-repeat
+}
+.banner {
+	HEIGHT: 227px
+}
+.flash {
+	HEIGHT: 139px
+}
+.row3 {
+	VERTICAL-ALIGN: top; HEIGHT: 274px; TEXT-ALIGN: left
+}
+.login {
+	FONT-SIZE: 12px; VERTICAL-ALIGN: bottom; TEXT-ALIGN: left
+}
