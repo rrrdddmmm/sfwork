@@ -92,7 +92,7 @@
 
 
 <h2>
-	<i>试卷提交成功！</i>
+	<i>作品提交成功！</i>
 </h2>
 <br>
 <span id="time" style="background: red">5</span>

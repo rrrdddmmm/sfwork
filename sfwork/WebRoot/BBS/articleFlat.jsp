@@ -74,7 +74,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 	<head>
-		<title>计算机基础教学平台-在线论坛</title>
+		<title>剪纸基础教学平台-在线论坛</title>
 		<meta http-equiv="content-type" content="text/html; charset=GBK">
 		<link rel="stylesheet" type="text/css" href="images/style.css"
 			title="Integrated Styles">
@@ -112,7 +112,7 @@
 					<tr valign="top">
 						<td width="98%">
 							<p class="jive-breadcrumbs">
-								论坛: 计算机基础课网络教学平台（KevinPlatform）
+								论坛: 剪纸网络教学平台
 							</p>
 							<p class="jive-description">
 								探讨网络课程的相关问题，共同交流提高，谢绝任何形式的广告，一经发现，立刻删除！

@@ -69,7 +69,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 	<HEAD>
-		<TITLE>算法分析与设计教学网站</TITLE>
+		<TITLE>剪纸设计教学网站</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/index_guest.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
@@ -135,10 +135,10 @@ function openf(url) {
 							<TD width=614 background=images/info-background2.jpg>
 								<DIV class=text1>
 									<a href="index.jsp" class="STYLE7">首页</a>
-									<a href="jpkc.jsp">网络精品课程</a>
-									<a href="studyResource.jsp">学习资源</a>
+									
+									<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span></a>
+									<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 									<a href="BBS/articleFlat.jsp">交流社区</a>
-									<a href="onlineExam.jsp">在线考试</a>
 									<a href="message.jsp">留言板</a>
 								</DIV>
 							</TD>
@@ -316,22 +316,7 @@ function openf(url) {
 												<a href="managerVIDEO.jsp">视频课程管理</a>
 											</TD>
 										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg">
-											</TD>
-											<TD class=text3>
-												<a href="managerCQ.jsp">管理选择题题库</a>
-											</TD>
-										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg">
-											</TD>
-											<TD class=text3>
-												<A href="managerSQ.jsp">管理简答题题库</A>
-											</TD>
-										</TR>
+										
 										<TR>
 											<TD class=dian>
 												&nbsp;
@@ -370,7 +355,7 @@ function openf(url) {
 											</TD>
 											
 											<TD class=text3>
-												<a href="http://www.aku.edu.cn">安康学院官网</a> </span>
+												<a href="https://www.xust.edu.cn/">西安科技大学官网</a> </span>
 											</TD>
 										</TR>
 										

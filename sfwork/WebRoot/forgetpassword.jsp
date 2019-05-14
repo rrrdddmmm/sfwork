@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <HTML>
 	<HEAD>
-		<TITLE>计算机基础课程教学平台（KevinPlatform）</TITLE>
+		<TITLE>计剪纸在线教学平台</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/default.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
@@ -134,12 +134,13 @@ body {
 										style="background-image: url(images/kevin logo.gif); background-position: center; background-repeat: no-repeat"></td>
 									<TD colSpan=7 height=24 id="tabs1">
 										<a href="message.jsp" title="留言板"><span>留言板</span> </a>
-										<a href="onlineExam.jsp" title="在线考试"><span>在线考试</span> </a>
 										<a href="BBS/articleFlat.jsp" title="交流社区"><span>交流社区</span>
 										</a>
-										<a href="studyResource.jsp" title="学习资源"><span>学习资源</span>
+										<!-- <a href="onlineExam.jsp" title="剪纸实践"><span>剪纸实践</span> </a>  -->
+										<a href="#" title="剪纸实践"><span>剪纸实践</span> </a>
+										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
 										</a>
-										<a href="jpkc.jsp" title="网络精品课程"><span>网络精品课程</span> </a>
+										<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 										<a href="index.jsp" title="首页"><span>首页</span> </a>
 									</TD>
 								</TR>

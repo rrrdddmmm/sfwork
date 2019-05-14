@@ -34,7 +34,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 	<head>
-		<title>计算机基础课程教学平台（KevinPlatform）</title>
+		<title>剪纸在线教学平台</title>
 		<meta http-equiv="content-type" content="text/html; charset=GBK">
 		<link rel="stylesheet" type="text/css" href="images/style.css"
 			title="Integrated Styles">

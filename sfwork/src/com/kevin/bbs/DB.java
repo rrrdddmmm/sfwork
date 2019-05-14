@@ -13,7 +13,7 @@ public class DB {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/bbs", "root", "123456");
+					"jdbc:mysql://114.116.124.84:3306/bbs", "root", "mysql123456");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {

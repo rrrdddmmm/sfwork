@@ -137,10 +137,10 @@ function openf(url) {
 							<TD width=614 background=images/info-background2.jpg>
 								<DIV class=text1>
 									<a href="index.jsp" class="STYLE7">首页</a>
-									<a href="jpkc.jsp">网络精品课程</a>
-									<a href="studyResource.jsp">学习资源</a>
+									
+									<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span></a>
+									<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 									<a href="BBS/articleFlat.jsp">交流社区</a>
-									<a href="onlineExam.jsp">在线考试</a>
 									<a href="message.jsp">留言板</a>
 								</DIV>
 							</TD>

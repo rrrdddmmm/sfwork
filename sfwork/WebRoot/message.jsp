@@ -50,7 +50,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <HTML>
 	<HEAD>
-		<TITLE>计算机基础课程教学平台（KevinPlatform）</TITLE>
+		<TITLE>剪纸学习平台</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/default.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
@@ -181,14 +181,14 @@ body {
 									<TD colSpan=7 height=24 id="tabs1">
 										<a href="message.jsp" title="留言板"><span>留言板</span>
 										</a>
-										<a href="onlineExam.jsp" title="在线考试"><span>在线考试</span>
-										</a>
+										
 										<a href="BBS/articleFlat.jsp" title="交流社区"><span>交流社区</span>
 										</a>
-										<a href="studyResource.jsp" title="学习资源"><span>学习资源</span>
+										<!-- <a href="onlineExam.jsp" title="剪纸实践"><span>剪纸实践</span> </a>  -->
+										<a href="#" title="剪纸实践"><span>剪纸实践</span> </a>
+										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
 										</a>
-										<a href="jpkc.jsp" title="网络精品课程"><span>网络精品课程</span>
-										</a>
+										<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 										<a href="index.jsp" title="首页"><span>首页</span>
 										</a>
 									</TD>
@@ -304,88 +304,31 @@ body {
 																							border=0>
 																							<TBODY>
 																								<TR>
-																								<TR>
-																									<TD align=middle height=18>
-																										<B><FONT color=#ff6600>课程目录</FONT> </B>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD vAlign=bottom align=middle height=24>
-																										<IMG height=32 src="images/jc.gif" width=150
-																											border=0>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD height=6>
-																										<HR align=center color=#eeeeee SIZE=1>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD vAlign=bottom align=middle height=24>
-																										<A
-																											href="http://202.115.138.20/subject.jsp?subject=clanguage"><IMG
-																												height=32 src="images/c.gif" width=150
-																												border=0> </A>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD height=6>
-																										<HR align=center color=#eeeeee SIZE=1>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD vAlign=bottom align=middle height=24>
-																										<IMG src="images/vfp.gif" border=0>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD height=6>
-																										<HR align=center color=#eeeeee SIZE=1>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD vAlign=bottom align=middle height=24>
-																										<IMG height=32 src="images/rj.gif" width=150
-																											border=0>
-																									</TD>
-																								</TR>
-																								<TR>
-																									<TD height=6>
-																										<HR align=center color=#eeeeee SIZE=1>
-																									</TD>
-																								</TR>
-																								<tr>
-																									<TD>
-																										<img src="images/zy.gif" border=1>
-																									</TD>
-																								</TR>
-																								<TR>
 																									<TD background=images/link0.gif bgColor=#efefef
 																										height=30>
-																										<FONT color=#ffffff>精品课程</FONT>
+																										<FONT color=#ffffff>剪纸课程</FONT>
 																									</TD>
 																								</TR>
 																								<TR>
 																									<TD align=left>
-																										大学计算机基础
+																										剪纸基础
 																									</TD>
 																								</TR>
 																								<TR>
 																									<TD align=left height=20>
-																										C/C++程序设计
+																										剪纸设计
 																									</TD>
 																								</TR>
 																								<TR>
 																									<TD align=left height=20>
-																										数据库程序设计
+																										剪纸浏览
 																									</TD>
 																								</TR>
 																								<TR>
 																									<TD align=left height=20>
-																										国家精品课程导航
+																										国家剪纸课程导航
 																									</TD>
 																								</TR>
-
 																								<TR>
 																									<TD background=images/link1.gif bgColor=#efefef
 																										height=30>

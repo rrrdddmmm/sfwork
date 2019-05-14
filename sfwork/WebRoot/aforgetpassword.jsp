@@ -50,7 +50,7 @@
 			}
 			
 			String content = "用户名：" + u.getUserName() + "  您的密码是：" + u.getUserPassword();
-			String subject = "计算机基础课程教学平台找回密码";
+			String subject = "剪纸在线实践平台找回密码";
 			String from = "wuguangyuan757@sina.com";
 			String name = "wuguangyuan757";
 			String password = "880214";

@@ -102,7 +102,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 	<HEAD>
-		<TITLE>计算机基础课程教学平台（KevinPlatform）</TITLE>
+		<TITLE>剪纸教学实践平台</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/index_guest.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
@@ -172,10 +172,9 @@ function openf(url) {
 							<TD width=614 background=images/info-background2.jpg>
 								<DIV class=text1>
 									<a href="index.jsp" class="STYLE7">首页</a>
-									<a href="jpkc.jsp">网络精品课程</a>
-									<a href="studyResource.jsp">学习资源</a>
+									<a href="jpkc.jsp">剪纸课程</a>
+									<a href="studyResource.jsp">剪纸资源</a>
 									<a href="BBS/articleFlat.jsp">交流社区</a>
-									<a href="onlineExam.jsp">在线考试</a>
 									<a href="message.jsp">留言板</a>
 								</DIV>
 							</TD>
@@ -240,45 +239,7 @@ function openf(url) {
 							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
 								height=2></TD>
 						</TR>
-						<TR>
-							<TD width=236 background=images/left-center-bg1.jpg colSpan=3>
-								<TABLE id=xxzy cellSpacing=0 border=0>
-									<TBODY>
-										<TR>
-											<TD colSpan=2 height=20>
-												<img src="images/kaoshiguanli.gif" width="78" height="21">
-											</TD>
-										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg">
-											</TD>
-											<TD class=text3>
-												<a href="teacherOnlienExam.jsp">试卷管理</a>
-											</TD>
-										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg" alt="sa">
-											</TD>
-											<TD class=text3>
-												<a href="teacherAddTestPaper.jsp">添加试卷</a>
-											</TD>
-										</TR>
-
-										<TR>
-											<TD class=dian>&nbsp;
-												
-											</TD>
-											<TD class=text3>
-												<A href="http://jcjy.sdu.edu.cn/faq/faqindex.htm"
-													target=_blank></A>
-											</TD>
-										</TR>
-									</TBODY>
-								</TABLE>
-							</TD>
-						</TR>
+						
 						<TR>
 							<TD width=236 background=images/left-center-bg2.jpg colSpan=3></TD>
 						</TR>
@@ -297,7 +258,7 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="teacherSC.jsp">上传课件资源</a>
+												<a href="teacherSC.jsp">上传剪纸课件资源</a>
 											</TD>
 										</TR>
 										<TR>
@@ -360,11 +321,7 @@ function openf(url) {
 												</span>
 											</TD>
 										</TR>
-										<TR>
-											<TD class=text3 colSpan=2>
-												<a href="http://tianfutianshi.blog.com.cn" class="text3">Kevin博客</a>
-											</TD>
-										</TR>
+										
 									</TBODY>
 								</TABLE>
 							</TD>

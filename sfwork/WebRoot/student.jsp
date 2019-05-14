@@ -69,7 +69,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 	<HEAD>
-		<TITLE>计算机基础课程教学平台（KevinPlatform）</TITLE>
+		<TITLE>剪纸在线教育学习平台</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/index_guest.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
@@ -137,10 +137,9 @@ function openf(url) {
 							<TD width=614 background=images/info-background2.jpg>
 								<DIV class=text1>
 									<a href="index.jsp" class="STYLE7">首页</a>
-									<a href="jpkc.jsp">网络精品课程</a>
-									<a href="studyResource.jsp">学习资源</a>
+									<a href="jpkc.jsp">剪纸学习课程</a>
+									<a href="studyResource.jsp">剪纸学习资源</a>
 									<a href="BBS/articleFlat.jsp">交流社区</a>
-									<a href="onlineExam.jsp">在线考试</a>
 									<a href="message.jsp">留言板</a>
 								</DIV>
 							</TD>
@@ -220,7 +219,8 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="studentLoginExam.jsp">参加考试</a>
+											<!-- studentLoginExam.jsp  -->
+												<a href="#">剪纸实践</a>
 											</TD>
 										</TR>
 										<TR>
@@ -228,7 +228,8 @@ function openf(url) {
 												<IMG src="images/dian.jpg" alt="sa">
 											</TD>
 											<TD class=text3>
-												<a href="studentCXCJ.jsp">查询成绩</a>
+											<!-- studentCXCJ.jsp -->
+												<a href="#">我的剪纸</a>
 											</TD>
 										</TR>
 										<TR>
@@ -315,17 +316,10 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="studyResource.jsp">课件</a>
+												<a href="studyResource.jsp">剪纸学习资源</a>
 											</TD>
 										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg">
-											</TD>
-											<TD class=text3>
-												<a href="studyResource.jsp">网络资源</a>
-											</TD>
-										</TR>
+										
 										<TR>
 											<TD class=dian>&nbsp;
 												
@@ -368,11 +362,6 @@ function openf(url) {
 												<span class="STYLE6"><a href="www.tjut.edu.cn"
 													class="text3">天津理工大学</a>
 												</span>
-											</TD>
-										</TR>
-										<TR>
-											<TD class=text3 colSpan=2>
-												<a href="http://tianfutianshi.blog.com.cn" class="text3">Kevin博客</a>
 											</TD>
 										</TR>
 									</TBODY>

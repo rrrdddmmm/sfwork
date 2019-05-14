@@ -69,7 +69,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 	<HEAD>
-		<TITLE>计算机基础课程教学平台（KevinPlatform）</TITLE>
+		<TITLE>剪纸</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/index_guest.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
@@ -139,10 +139,10 @@ function openf(url) {
 							<TD width=614 background=images/info-background2.jpg>
 								<DIV class=text1>
 									<a href="index.jsp" class="STYLE7">首页</a>
-									<a href="jpkc.jsp">网络精品课程</a>
-									<a href="studyResource.jsp">学习资源</a>
+									
+									<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span></a>
+									<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 									<a href="BBS/articleFlat.jsp">交流社区</a>
-									<a href="onlineExam.jsp">在线考试</a>
 									<a href="message.jsp">留言板</a>
 								</DIV>
 							</TD>
@@ -305,22 +305,7 @@ function openf(url) {
 												<a href="managerSC.jsp">上传课件资源</a>
 											</TD>
 										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg">
-											</TD>
-											<TD class=text3>
-												<a href="managerCQ.jsp">管理选择题题库</a>
-											</TD>
-										</TR>
-										<TR>
-											<TD class=dian>
-												<IMG src="images/dian.jpg">
-											</TD>
-											<TD class=text3>
-												<A href="managerSQ.jsp">管理简答题题库</A>
-											</TD>
-										</TR>
+										
 										<TR>
 											<TD class=dian>
 												&nbsp;
@@ -362,16 +347,12 @@ function openf(url) {
 										</TR>
 										<TR>
 											<TD class=text3 colSpan=2>
-												<span class="STYLE6"><a href="www.tjut.edu.cn"
-													class="text3">天津理工大学</a>
+												<span class="STYLE6"><a href="#"
+													class="text3">西安科技大学</a>
 												</span>
 											</TD>
 										</TR>
-										<TR>
-											<TD class=text3 colSpan=2>
-												<a href="http://tianfutianshi.blog.com.cn" class="text3">Kevin博客</a>
-											</TD>
-										</TR>
+										
 									</TBODY>
 								</TABLE>
 							</TD>
