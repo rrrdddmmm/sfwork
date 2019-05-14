@@ -1,0 +1,1 @@
+<%=application.getRealPath("/") %> 获取应用部署的路径
