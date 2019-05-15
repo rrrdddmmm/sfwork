@@ -1,58 +1,50 @@
-﻿<%@ page language="java" import="java.util.*,java.sql.*,com.ComputerTrainingPlatform.*" pageEncoding="utf-8"%>
-<%
-String path = request.getContextPath();
-System.out.println(path);
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@page language="java" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*,java.util.*,com.ComputerTrainingPlatform.*"%>
+
 <%
 	//设置编码格式为GB18030
 	request.setCharacterEncoding("GB18030");
-	//得到课程类型，链接数据库取出相应的课程类型中的数据
-	int courseType = Integer.parseInt(request
-			.getParameter("courseType"));
-	int detId = Integer.parseInt(request.getParameter("detId"));
-	String detid =request.getParameter("detId");
-	System.out.println(detId);
+	//链接数据库，取出sourcefile中的记录
 	Connection conn = DB1.getConn();
 	Statement stmt = DB1.createStmt(conn);
-	String sql = "select * from course where id = '" + detId
-			+ "'";
-	ResultSet rs = DB1.executeQuery(stmt, sql);
-	rs.next();
-	Course c = new Course();
-	c.initFromRs(rs);
-		String filename=c.getFilename();
-	System.out.println(filename);
-	//关闭数据库连接
-	DB1.close(rs);
-	DB1.close(stmt);
-	DB1.close(conn);
+	String username = (String) session.getAttribute("username");
+	System.out.println("=============================::::::::::::::" + username);
+	List<SourceFile> sourcefiles = null;
+	if(username != null){
+		String sql = "select * from jzsourcefile order by filedate desc";
+		ResultSet rs = DB1.executeQuery(stmt, sql);
+		//创建ArrayList类对象sourcefiles用来存放从数据库中取出的数据
+		sourcefiles = new ArrayList<SourceFile>();
+		while(rs.next()) {
+			SourceFile sf = new SourceFile();
+			//对sf进行初始化
+			sf.initFromRs(rs);
+			sourcefiles.add(sf);
+		}
+	}
+	
 %>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<title>算法分析与设计教学网站</title>
-<link rel="stylesheet" type="text/css" href="Html5Video/css/video.css" media="all">
-<script type="text/javascript" src="Html5Video/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="Html5Video/js/jquery.plugin.js"></script>
-<script type="text/javascript" src="Html5Video/js/jquery.video.js"></script>
 <script type="text/javascript">
-	$(function(){
-			var s= $(".video_container").html();
-			$(".video_container").html5video({
-				width:800,               //Number型，播放器宽度。
-				height:400,              //Number型，播放器高度。
-				src:s,                  //String型，要播放的视频的 URL。
-				poster:"http://oss.aliyuncs.com/zihanblog/file/video_poster.png",               //String型，在视频播放之前所显示的图片的 URL。
-				loop:false,              //Boolean型，则当媒介文件完成播放后再次开始播放。
-				preload:false,            //Boolean型，如果出现该属性，则视频在页面加载时进行加载，并预备播放。
-				notsuportmsg:"您的浏览器不支持html5，无法使用该插件！"    //String型，浏览器不支持video标签时的提示，可使用html标签。			
-			});
-
-	});
+<!--
+	function isLegal() {
+		var u = document.getElementById("username").value;
+		var p = document.getElementById("userpassword").value;
+		
+		if(u == "") {
+			alert("请输入用户名！");
+			return;
+		} else if(p == ""){
+			alert("请输入密码！");
+			return;
+		}
+	}
+//-->
 </script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML>
+	<HEAD>
+		<TITLE>剪纸平台</TITLE>
+		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/default.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
 TH {
@@ -140,10 +132,15 @@ body {
 .STYLE1 {
 	font-size: 15px
 }
+
+.STYLE4 {
+	color: #FFFFFF
+}
 </STYLE>
 		<META content="MSHTML 6.00.2900.3268" name=GENERATOR>
 	</HEAD>
 	<BODY leftMargin=0 topMargin=0>
+		<!--top-->
 		<TABLE cellSpacing=0 cellPadding=0 width=100% align=center border=0>
 			<TBODY>
 				<TR>
@@ -154,9 +151,9 @@ body {
 									<TD>
 										<object height=150 width="100%"
 											classid=clsid:D27CDB6E-AE6D-11cf-96B8-444553540000>
-											<param name="movie" value="images/jpkc.swf">
+											<param name="movie" value="images/studyResource.swf">
 											<param name="quality" value="high">
-											<embed src="images/jpkc.swf" 
+											<embed src="images/studyResource.swf" quality="high"
 												type="application/x-shockwave-flash" width="100%"
 												height="120"></embed>
 										</object>
@@ -168,6 +165,8 @@ body {
 				</TR>
 			</TBODY>
 		</TABLE>
+		<!-- end of top-->
+		<!--center-->
 		<TABLE class=pageborder cellSpacing=0 cellPadding=0 width=100%
 			align=center bgColor=#ffffff border=1>
 			<TBODY>
@@ -180,18 +179,26 @@ body {
 									<td colSpan=2 height=24
 										style="background-image: url(images/kevin logo.gif); background-position: center; background-repeat: no-repeat"></td>
 									<TD colSpan=7 height=24 id="tabs1">
-										<a href="index.jsp" class="STYLE7">首页</a>
+										<a href="message.jsp" title="留言板"><span>留言板</span>
+										</a>
+										<a href="BBS/articleFlat.jsp" title="交流社区"><span>交流社区</span>
+										</a>
 										<!-- <a href="onlineExam.jsp" title="剪纸实践"><span>剪纸实践</span> </a>  -->
-										<a href="studyResourceJZ.jsp" title="我的剪纸"><span>我的剪纸</span> </a>
-										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span></a>
-										<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
-										<a href="BBS/articleFlat.jsp">交流社区</a>
-										<a href="message.jsp">留言板</a>
+										<a href="#" title="我的剪纸"><span>我的剪纸</span> </a>
+										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
+										</a>
+										<a href="jpkc.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
+										</a>
+										<a href="index.jsp" title="首页"><span>首页</span>
+										</a>
 									</TD>
 								</TR>
+
 								<TR>
-									<TD class=border vAlign=top align=center width=300>
+
+									<TD class=border vAlign=top align=middle width=300>
 										<TABLE>
+
 											<TBODY>
 												<TR>
 													<TD>
@@ -209,7 +216,7 @@ body {
 																				border=0>
 																				<TBODY>
 																					<TR>
-																						<TD align=center bgColor=#efefef>
+																						<TD align=middle bgColor=#efefef>
 																							<TABLE width="100%" align=center>
 																								<TBODY>
 																									<TR>
@@ -273,6 +280,7 @@ body {
 														</FORM>
 													</TD>
 												</TR>
+
 												<TR>
 													<TD>
 														<TABLE cellSpacing=0 cellPadding=0 width=150 border=0>
@@ -282,8 +290,9 @@ body {
 																		<TABLE cellSpacing=1 cellPadding=4 width="100%"
 																			border=0>
 																			<TBODY>
+
 																				<TR>
-																					<TD bgColor=#efefef style="line-height:150%">
+																					<TD bgColor=#efefef sytle="line-height:150%">
 																						<TABLE cellSpacing=0 cellPadding=4 width="100%"
 																							border=0>
 																							<TBODY>
@@ -291,12 +300,13 @@ body {
 																						</TABLE>
 																					</TD>
 																				</TR>
+
+
 																				<TR>
 																					<TD align=center bgColor=#ffffff>
 																						<TABLE cellSpacing=0 cellPadding=0 width="100%"
 																							border=0>
 																							<TBODY>
-																								<TR>
 																								<TR>
 																									<TD background=images/link0.gif bgColor=#efefef
 																										height=30>
@@ -315,7 +325,7 @@ body {
 																								</TR>
 																								<TR>
 																									<TD align=left height=20>
-																										剪纸实践
+																										剪纸浏览
 																									</TD>
 																								</TR>
 																								<TR>
@@ -379,111 +389,127 @@ body {
 												</TR>
 										</TABLE>
 									</TD>
-									<TD width=4></TD>
-									<TD class=border vAlign=top>
-										<TABLE width="100%">
-											<TBODY>
-												<TR>
-													<TD>
-														<TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
-															<TBODY>
-																<TR>
-																	<TD colSpan=2>
-																		<TABLE width="100%" height="36" border=0 cellPadding=0
-																			cellSpacing=0>
-																			<TBODY>
 
-																				<TR>
-																					<TD width="198" height="34"
+									<TD width=4></TD>
+
+
+									<TD class=border vAlign=top>
+										<table width="100%">
+
+											<tbody>
+												<tr>
+													<td>
+														<table cellspacing=0 cellpadding=0 width="100%" border=0
+															bgcolor="">
+															<tbody>
+																<tr>
+																	<td colspan=2>
+																		<table width="100%" height="36" border=0 cellpadding=0
+																			cellspacing=0>
+																			<tbody>
+																				<tr>
+																					<td width="198" height="34"
 																						background=images/sub2_21.gif>
 																						&nbsp;
-																						<SPAN class="STYLE1"
+																						<span class="STYLE1"
 																							style="color: #FF9900; size: 11">
-																							<%
-																								if (courseType == 1) {
-																							%> 初级课程 <%
-																								} else if (courseType == 2) {
-																							%> 中级课程 <%
-																								} else {
-																							%> 高级课程 <%
-																								}
-																							%> </SPAN>
+																							我的剪纸中心 </span>
+																					</td>
+																					<td width="579" align=right>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</td>
+																</tr>
+																<tr>
+																	<td width="790" align="left">
+																		<TABLE cellSpacing=0 cellPadding=3 width=100% border=1
+																			bgcolor="#66CCFF" align="left">
+																			<TBODY>
+																				<TR>
+																					<TD bgColor=#c4c4ec>
+																						资源名称
 																					</TD>
-																					<TD width="579" align=right>
-																						<TABLE>
-																							<TBODY>
-																								<TR>
-																									<TD>
-																										<IMG height=9 src="images/more.gif" width=27
-																											border=0>
-																									</TD>
-																								</TR>
-																							</TBODY>
-																						</TABLE>
+																					<TD bgColor=#c4c4ec>
+																						上传者
+																					</TD>
+																					<TD bgColor=#c4c4ec>
+																						上传时间
+																					</TD>
+																					<TD bgColor=#c4c4ec>
+																						资源下载
 																					</TD>
 																				</TR>
-																			</TBODY>
-																		</TABLE>
-																	</TD>
-																</TR>
-<TR>
-	
-		<TD colSpan=2 align="center"><div class="video_container"hidden="true"style="margin:0auto"><%=path%>/upload/<%=filename%>
-		</div></TD>															
- </TR>
-																<TR>
-																
-																	<TD width="492" align="center" class=msg>课程名：<%=c.getCourseTitle()%></TD>
-																	<TD class=date noWrap width=285 >
-																		主讲老师：<%=c.getCourseTeacher()%></TD>
-																</TR>
+																				<%
+																					SourceFile sf = new SourceFile();
+																					if(sourcefiles != null){
+																						for(Iterator<SourceFile> it = sourcefiles.iterator(); it.hasNext();) {
+																							sf = new SourceFile();
+																							sf = it.next();
+																					}
+																				%>
+																				<TR>
+																					<TD width="40%" bgColor=#c4c4ec><%=sf.getFileName() %></TD>
+																					<TD width="15%" bgColor=#c4c4ec><%=sf.getFileDeliver() %></TD>
+																					<TD width="25%" bgColor=#c4c4ec><%=new java.text.SimpleDateFormat("yy-MM-dd").format(sf.getFileDate()) %></TD>
+																					<TD width="20%" bgColor=#c4c4ec>
+																						<a href="astudyResourceJZ.jsp?fileId=<%=sf.getId() %>">下载</a>
+																						<a href="#">预览</a>
+																					</TD>
+																				</TR>
+																				<%
+																					}
+																				%>
+																			</tbody>
+																		</table>
+																	</td>
+																</tr>
 
-																<TR>
-																	<TD align="center" colspan=2 class=msg>课程简介： <%=c.getCourseInfo()%></TD>
-																		
-																</TR>
-															
-																
-															</TBODY>
-														</TABLE>
+															</tbody>
+														</table>
+													</TD>
+
+
+
+
+												</TR>
+										</TABLE>
+									</TD>
+								</TR>
+							</TBODY>
+						</TABLE>
+
+
+						<TABLE cellSpacing=0 cellPadding=0 width=100% align=center
+							bgColor=#ffffff border=0>
+							<TBODY>
+								<TR>
+									<TD align=middle colSpan=3>
+										<TABLE width="100%">
+											<TBODY>
+												<TR align=right>
+													<TD background=images/bgmenu_t.gif colSpan=7 height=24></TD>
+												</TR>
+												<tr>
+													<TD background=images/diandian.gif height=10>
+														&nbsp;
+													</TD>
+												</TR>
+												<TR>
+													<TD align=middle height=30>
+														Copyright@ ComputerTraining KevinPlatForm
 													</TD>
 												</TR>
 											</TBODY>
 										</TABLE>
 									</TD>
-									<TD width=4></TD>
-									<TD width=4></TD>
-								</TR>
-								<TR align=right>
-									<TD background=images/bgmenu_t.gif colSpan=7 height=24></TD>
-								</TR>
-						</TABLE>
-					</TD>
-				</TR>
-			</TBODY>
-		</TABLE>
-		<TABLE cellSpacing=0 cellPadding=0 width=100% align=center
-			bgColor=#ffffff border=0>
-			<TBODY>
-				<TR>
-					<TD align=center colSpan=3>
-						<TABLE width="100%">
-							<TBODY>
-								<TR>
-									<TD background=images/diandian.gif height=10>
-										&nbsp;
-									</TD>
-								</TR>
-								<TR>
-									<TD align=center height=30>
-										Copyright@ ComputerTraining KevinPlatForm
-									</TD>
 								</TR>
 							</TBODY>
 						</TABLE>
-					</TD>
-				</TR>
-			</TBODY>
-		</TABLE>
 	</BODY>
 </HTML>

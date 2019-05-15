@@ -1,5 +1,5 @@
 <%@ page language="java"
-	import="java.util.*,java.sql.*,com.ComputerTrainingPlatform.*"
+	import="java.sql.*,com.ComputerTrainingPlatform.*"
 	pageEncoding="GB18030"%>
 
 <script type="text/javascript">
@@ -19,6 +19,7 @@
 </script>
 
 <%
+	request.setCharacterEncoding("GB18030");
 	String username = (String) session.getAttribute("username");
 	if (username == null) {
 %>
@@ -48,19 +49,7 @@
 	User u = new User();
 	u.initFromRs(rs);
 
-	Statement stmt1 = DB1.createStmt(conn);
-	String sql1 = "select * from news order by ndate desc limit 5";
-	List<News> newses = new ArrayList<News>();
-	ResultSet rs1 = DB1.executeQuery(stmt, sql1);
-	while (rs1.next()) {
-		News n = new News();
-		n.initFromRs(rs1);
-		newses.add(n);
-	}
-
-	DB1.close(rs1);
-	DB1.close(stmt1);
-
+	
 	DB1.close(rs);
 	DB1.close(stmt);
 	DB1.close(conn);
@@ -69,14 +58,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
 	<HEAD>
-		<TITLE>剪纸在线教育学习平台</TITLE>
+		<TITLE>剪纸设计教学网站</TITLE>
 		<META http-equiv=Content-Type content="text/html; charset=gb2312">
 		<LINK href="images/index_guest.css" type=text/css rel=stylesheet>
 		<STYLE type=text/css>
-.STYLE3 {
-	font-size: 30px
-}
-
 .STYLE6 {
 	font-size: 17px
 }
@@ -84,10 +69,16 @@
 body {
 	margin-left: 0px;
 	margin-right: 0px;
+	background-image: url(images/bg.jpg);
 }
 
 .STYLE7 {
 	color: #FFFFFF
+}
+
+.STYLE8 {
+	font-size: 15px;
+	font-weight: bold;
 }
 </STYLE>
 
@@ -118,9 +109,9 @@ function openf(url) {
 							<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 								codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
 								width="100%" height="100%">
-								<param name="movie" value="images/student.swf">
+								<param name="movie" value="images/guanlixitong.swf">
 								<param name="quality" value="high">
-								<embed style="margin-top: 0px" src="images/student.swf"
+								<embed style="margin-top: 0px" src="images/guanlixitong.swf"
 									quality="high"
 									pluginspage="http://www.macromedia.com/go/getflashplayer"
 									type="application/x-shockwave-flash" width="1000" height="120"></embed>
@@ -137,8 +128,9 @@ function openf(url) {
 							<TD width=614 background=images/info-background2.jpg>
 								<DIV class=text1>
 									<a href="index.jsp" class="STYLE7">首页</a>
-									<a href="jpkc.jsp">剪纸学习课程</a>
-									<a href="studyResource.jsp">剪纸学习资源</a>
+									
+									<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span></a>
+									<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 									<a href="BBS/articleFlat.jsp">交流社区</a>
 									<a href="message.jsp">留言板</a>
 								</DIV>
@@ -146,8 +138,7 @@ function openf(url) {
 							<TD width=7 background=images/info-center.jpg></TD>
 							<TD width=315 background=images/info-background1.jpg>
 								<DIV class=text1>
-									用户名：<%=u.getUserName()%>&nbsp;&nbsp;&nbsp;&nbsp;身份： 学生
-									&nbsp;&nbsp;&nbsp;&nbsp;
+									用户名：<%=u.getUserName()%>&nbsp;身份： 管理员 &nbsp;
 									<A class=white12 href="index.jsp" target=_self> 退出系统 </A>
 								</DIV>
 							</TD>
@@ -170,7 +161,7 @@ function openf(url) {
 									<TBODY>
 										<TR>
 											<TD colSpan=2 height=20>
-												<IMG src="images/gerenxinxi.gif" width="78" height="21">
+												<IMG src="images/xinxiguanli.gif" width="78" height="21">
 											</TD>
 										</TR>
 										<TR>
@@ -178,7 +169,7 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="studentGX.jsp">个人信息查询</a>
+												<a href="managerXWGG.jsp">新闻公告</a>
 											</TD>
 										</TR>
 										<TR>
@@ -186,7 +177,7 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="studentXGMM.jsp">修改密码</a>
+												<a href="managerXTTZ.jsp">系统通知</a>
 											</TD>
 										</TR>
 										<TR>
@@ -211,7 +202,7 @@ function openf(url) {
 									<TBODY>
 										<TR>
 											<TD colSpan=2 height=20>
-												<img src="images/zaixiankaoshi.gif" width="78" height="21">
+												<img src="images/xueshengguanli.gif" width="78" height="21">
 											</TD>
 										</TR>
 										<TR>
@@ -219,8 +210,7 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-											<!-- studentLoginExam.jsp  -->
-												<a href="studyResourceJZ.jsp">我的剪纸</a>
+												<a href="managerTJXS.jsp">添加学生资料</a>
 											</TD>
 										</TR>
 										<TR>
@@ -228,13 +218,12 @@ function openf(url) {
 												<IMG src="images/dian.jpg" alt="sa">
 											</TD>
 											<TD class=text3>
-											<!-- studentCXCJ.jsp -->
-												<a href="studentSCJZ.jsp">剪纸制作</a>
+												<a href="managerXGXS.jsp">修改学生资料</a>
 											</TD>
 										</TR>
 										<TR>
-											<TD class=dian>&nbsp;
-												
+											<TD class=dian>
+												&nbsp;
 											</TD>
 											<TD class=text3></TD>
 										</TR>
@@ -251,7 +240,7 @@ function openf(url) {
 									<TBODY>
 										<TR>
 											<TD colSpan=2 height=20>
-												<IMG src="images/jiaoliushequ.gif" width="78" height="21">
+												<IMG src="images/jiaoshiguanli.gif" width="78" height="21">
 											</TD>
 										</TR>
 										<TR>
@@ -259,29 +248,29 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="BBS/articleFlat.jsp">学习论坛</a>
+												<a href="managerTJJS.jsp">添加教师资料</a>
 											</TD>
 										</TR>
 										<TR>
-											<TD class=dian>&nbsp;
-												
+											<TD class=dian>
+												<IMG src="images/dian.jpg">
 											</TD>
-											<TD class=text3>&nbsp;
-												
+											<TD class=text3>
+												<a href="managerXGJS.jsp">修改教师资料</a>
 											</TD>
 										</TR>
 										<TR>
-											<TD class=dian>&nbsp;
-												
+											<TD class=dian>
+												&nbsp;
 											</TD>
 											<TD class=text3></TD>
 										</TR>
 										<TR>
-											<TD class=dian>&nbsp;
-												
+											<TD class=dian>
+												&nbsp;
 											</TD>
-											<TD class=text3>&nbsp;
-												
+											<TD class=text3>
+												&nbsp;
 											</TD>
 										</TR>
 									</TBODY>
@@ -289,26 +278,12 @@ function openf(url) {
 							</TD>
 						</TR>
 						<TR>
-							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
-								height=2></TD>
-						</TR>
-						<TR>
-							<TD class=left1 width=236 background=images/left-center-bg1.jpg
-								colSpan=3>&nbsp;
-								
-							</TD>
-						</TR>
-						<TR>
-							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
-								height=2></TD>
-						</TR>
-						<TR>
 							<TD width=236 background=images/left-center-bg1.jpg colSpan=3>
-								<TABLE id=xzzx cellSpacing=0 border=0>
+								<TABLE id=jlsq cellSpacing=0 border=0>
 									<TBODY>
 										<TR>
-											<TD colSpan=2 height=21>
-												<IMG src="images/xiazaizhongxin.gif" width="78" height="21">
+											<TD colSpan=2 height=20>
+												<IMG src="images/ziyuanguanli.gif" width="78" height="21">
 											</TD>
 										</TR>
 										<TR>
@@ -316,30 +291,39 @@ function openf(url) {
 												<IMG src="images/dian.jpg">
 											</TD>
 											<TD class=text3>
-												<a href="studyResource.jsp">剪纸学习资源</a>
-											</TD>
-										</TR>
-										
-										<TR>
-											<TD class=dian>&nbsp;
-												
-											</TD>
-											<TD class=text3>&nbsp;
-												
+												<a href="managerSC.jsp">上传教学资源</a>
 											</TD>
 										</TR>
 										<TR>
-											<TD class=dian>&nbsp;
-												
+											
+											
+										</TR>
+										<TR>
+											
+											
+										</TR>
+										<TR>
+											<TD class=dian>
+												&nbsp;
 											</TD>
-											<TD class=text3>&nbsp;
-												
+											<TD class=text3>
+												&nbsp;
 											</TD>
 										</TR>
 									</TBODY>
 								</TABLE>
 							</TD>
 						</TR>
+						<TR>
+							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
+								height=2></TD>
+						</TR>
+
+						<TR>
+							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
+								height=2></TD>
+						</TR>
+
 						<TR>
 							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
 								height=2></TD>
@@ -359,9 +343,14 @@ function openf(url) {
 										</TR>
 										<TR>
 											<TD class=text3 colSpan=2>
-												<span class="STYLE6"><a href="www.tjut.edu.cn"
-													class="text3">天津理工大学</a>
+												<span class="STYLE6"><a href="#"
+													class="text3">西安科技大学官网</a>
 												</span>
+											</TD>
+										</TR>
+										<TR>
+											<TD class=text3 colSpan=2>
+												<!-- <a href="http://tianfutianshi.blog.com.cn" class="text3">Kevin博客</a> -->
 											</TD>
 										</TR>
 									</TBODY>
@@ -394,75 +383,65 @@ function openf(url) {
 				</TABLE>
 			</DIV>
 			<DIV id=right>
-				<TABLE height="854" cellSpacing=0 id=right-table>
+				<TABLE id=right-table cellSpacing=0>
 					<TBODY>
 						<TR>
-							<TD width=48 background=images/right-top1.jpg height=40></TD>
-							<TD width=90 background=images/right-top2.jpg height=40></TD>
-							<TD width=169 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=15 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=107 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=45 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=41 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=73 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=99 background=images/right-top-bg1.jpg height=40></TD>
-							<TD width=63 background=images/right-top-bg1.jpg height=40></TD>
-						</TR>
-						<TR>
-							<TD class=left1 width=429 background=images/bg.jpg
-								colSpan=5 height=169>
-								<TABLE id=xtgg cellSpacing=0 border=0>
-									<TBODY>
-										<%
-											for (Iterator<News> it = newses.iterator(); it.hasNext();) {
-												News n = new News();
-												n = it.next();
-										%>
-										<TR>
-											<TD class=xtgg1 background=images/bg.jpg>
-												<IMG src="images/dian.jpg">											</TD>
-											<TD class=xtgg2 colSpan=2 background=images/bg.jpg>
-												<a
-													href="amanagerXWGGdetail.jsp?dettitle=<%=n.getNewsTitle()%>"
-													target=_blank><%=n.getNewsTitle()%></A>&nbsp;&nbsp;&nbsp;<%=n.getNewsDeliver()%>:
-												<span class="date"><%=n.getNewsDate()%>											</TD>
-										</TR>
-										<%
-											}
-										%>
-										
-									</TBODY>
-								</TABLE>
-							</TD>
-							<TD width=45 background=images/bg.jpg height=171></TD>
-							<TD width=276 background=images/bg.jpg colSpan=4
-								height=169>
+							<TD height=40 colspan="10" background=images/right-top-bg3.jpg
+								align="center">
+								<span class="STYLE8">上传图像</span>
 							</TD>
 						</TR>
 						<TR>
-							<TD width=307 background=images/bg.jpg colSpan=3 height=16></TD>
-							<TD width=167 background=images/bg.jpg colSpan=3
-								height=16></TD>
-							<TD width=276 background=images/bg.jpg colSpan=4 height=16></TD>
-						</TR>
-						<TR>
-							<TD width=750 background=images/bg.jpg colSpan=10 height=26>&nbsp;
-								
-						  </TD>
-						</TR>
-						<TR>
-							<TD width=750 background=images/bg.jpg colSpan=10 height=596>
-								<TABLE id=kc-table cellSpacing=0 border=0></TABLE>
-						  </TD>
+							<TD width="750" colSpan=10 background=images/bg.jpg class=left1
+								align="center">
+								<form action="amanagerSCJZ.jsp" enctype="multipart/form-data"
+									method="post">
+									<TABLE width="500" border=2 align="center" cellSpacing=0>
+										<TBODY>
+											<TR>
+												<TD class=text4 colspan="2" align="center" bgcolor="#0099FF">
+													上传文件
+												</TD>
+											</TR>
+											<TR>
+												<TD class=text4 width="132" align="right">
+													上传人：
+												</TD>
+												<TD>
+													<input type="text" name="fileDeliver"/>
+												</TD>
+											</TR>
+
+											<TR>
+												<TD class=text4 width="132" align="right">
+													文件：
+												</TD>
+												<TD>
+													<input type="file" name="file1" />
+												</TD>
+											</TR>
+											<TR>
+												<TD width="132" align="right"></TD>
+												<TD>
+													<input name="submit" type="submit" value="点击上传" />
+													<input type="reset" value="重置" />
+												</TD>
+											</TR>
+										</TBODY>
+									</TABLE>
+								</form>
+							</TD>
 						</TR>
 					</TBODY>
-			  </TABLE>
+				</TABLE>
 			</DIV>
 			<DIV id=foot>
 				<TABLE width="100%" cellSpacing=0 cellPadding=0 border=0>
 					<TBODY>
 						<TR>
-							<TD class=foot_text background=images/right-top-bg1.jpg></TD>
+							<TD class=foot_text background=images/right-top-bg1.jpg>
+								su
+							</TD>
 						</TR>
 
 

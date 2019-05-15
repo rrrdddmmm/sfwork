@@ -207,14 +207,17 @@ CREATE TABLE `sourcefile` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of sourcefile
+-- Table structure for `jzsourcefile`
 -- ----------------------------
-INSERT INTO `sourcefile` VALUES ('17', '【HYL】李连杰电影全集【精武英雄】国语版.flv', 'admin', '2017-04-22 23:28:58');
-INSERT INTO `sourcefile` VALUES ('18', 'Alone 中文字幕版--音悦Tai.mp4', 'admin', '2017-04-22 23:40:24');
-INSERT INTO `sourcefile` VALUES ('19', '', '', '2017-04-24 13:58:13');
-INSERT INTO `sourcefile` VALUES ('20', '', 'null', '2017-04-24 16:16:34');
-INSERT INTO `sourcefile` VALUES ('21', '1110_元若蓝_绿袖子.rmvb.flv', 'admin', '2017-04-24 16:32:28');
-INSERT INTO `sourcefile` VALUES ('22', 'java-review-master (1).zip', '', '2019-04-15 16:36:37');
+DROP TABLE IF EXISTS `jzsourcefile`;
+CREATE TABLE `jzsourcefile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(200) DEFAULT NULL,
+  `username` varchar(200) DEFAULT NULL,
+  `filedeliver` varchar(50) DEFAULT NULL,
+  `filedate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Table structure for `student`

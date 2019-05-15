@@ -26,6 +26,8 @@ import javax.net.ssl.X509TrustManager;
  */
 public class SimpleBinarization {
     public static void main(String args[]){
+//    	File file = new File();
+//    	file.exists()
         for(int i=0;i<100;i++){
             BufferedImage bi=httpsGetImg(httpsGetImgURL());
             int width=bi.getWidth();
@@ -35,7 +37,7 @@ public class SimpleBinarization {
             for(int minx=bi.getMinX();minx<width;minx++){
                 for(int miny=bi.getMinY();miny<height;miny++){
                     pixel=bi.getRGB(minx, miny);
-                    if(pixel==-1){//此时为白色/透明背景
+                    if(pixel==-1){
                         binary.setRGB(minx, miny, Color.WHITE.getRGB());
                     }else{
                         binary.setRGB(minx, miny, Color.BLACK.getRGB());
@@ -123,7 +125,7 @@ public class SimpleBinarization {
         }
         return result;
     }
-    //https证书
+
     private static X509TrustManager cytoX509TrustManager=new X509TrustManager(){
  
         public X509Certificate[] getAcceptedIssuers(){

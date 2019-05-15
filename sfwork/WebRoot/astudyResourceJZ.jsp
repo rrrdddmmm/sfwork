@@ -6,7 +6,7 @@
 	
 	Connection conn = DB1.getConn();
 	Statement stmt = DB1.createStmt(conn);
-	String sql = "select * from sourcefile where id = " +  fileId;
+	String sql = "select * from jzsourcefile where id = " +  fileId;
 	ResultSet rs = DB1.executeQuery(stmt, sql);
 	SourceFile sf = new SourceFile();
 	rs.next();

@@ -10,10 +10,13 @@
 	SmartUpload su = new SmartUpload();
 	try {
 		su.initialize(this.getServletConfig(), request, response);
-		 su.setDeniedFilesList("exe,bat,jsp,htm,html,,");
-		su.upload();		
-		count = su.save("/source");
-		out.println(count+"个文件上传成功！<br>");
+		su.setDeniedFilesList("exe,bat,jsp,htm,html,,");
+		su.upload();
+		String absPath=new java.io.File(application.getRealPath(request.getRequestURI())).getParent();
+		System.out.println(absPath);
+		count = su.save(""+absPath+"/source");
+		out.println(count+"个文件上传成功！"+request.getContextPath()+"<br>");
+		System.out.println("==============================:"+request.getContextPath());
 		com.jspsmart.upload.File file =	 su.getFiles().getFile(0);
 		filename = file.getFileName();
 		System.out.println(filename);

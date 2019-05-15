@@ -150,7 +150,7 @@ body {
 									<TD colSpan=7 height=24 id="tabs1">
 										<a href="index.jsp" class="STYLE7">首页</a>
 										<!-- <a href="onlineExam.jsp" title="剪纸实践"><span>剪纸实践</span> </a>  -->
-										<a href="#" title="剪纸实践"><span>剪纸实践</span> </a>
+										<a href="studyResourceJZ.jsp" title="我的剪纸"><span>我的剪纸</span> </a>
 										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span></a>
 										<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span> </a>
 										<a href="BBS/articleFlat.jsp">交流社区</a>
