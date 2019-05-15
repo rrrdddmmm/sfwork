@@ -8,6 +8,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jspsmartupload.jar"/>
 	<classpathentry kind="lib" path="D:/apache-tomcat-6.0.44/lib/jsp-api.jar"/>
 	<classpathentry kind="lib" path="D:/apache-tomcat-6.0.44/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/filters-2.0.235-1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
