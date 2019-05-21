@@ -111,7 +111,7 @@
 
 	
 	Connection conn = DB1.getConn();
-	String sql = "insert into jzsourcefile values(null,'" +filename + "','" + username + "','" + fileDeliver + "',now())";
+	String sql = "insert into jzsourcefile values(null,'" +filename + "','" + fileDeliver + "',now())";
 	DB1.executeUpdate(conn, sql);
 	
 	response.sendRedirect("managerJZ.jsp");

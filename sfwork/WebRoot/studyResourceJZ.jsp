@@ -8,24 +8,19 @@
 	//链接数据库，取出sourcefile中的记录
 	Connection conn = DB1.getConn();
 	Statement stmt = DB1.createStmt(conn);
-	String username = (String) session.getAttribute("username");
-	System.out.println("=============================::::::::::::::" + username);
-	List<SourceFile> sourcefiles = null;
-	if(username != null){
-		String sql = "select * from jzsourcefile order by filedate desc";
-		ResultSet rs = DB1.executeQuery(stmt, sql);
-		//创建ArrayList类对象sourcefiles用来存放从数据库中取出的数据
-		sourcefiles = new ArrayList<SourceFile>();
-		while(rs.next()) {
-			SourceFile sf = new SourceFile();
-			//对sf进行初始化
-			sf.initFromRs(rs);
-			sourcefiles.add(sf);
-		}
+	String sql = "select * from jzsourcefile order by filedate desc";
+	ResultSet rs = DB1.executeQuery(stmt, sql);
+	//创建ArrayList类对象sourcefiles用来存放从数据库中取出的数据
+	List<SourceFile> sourcefiles = new ArrayList<SourceFile>();
+	while(rs.next()) {
+		SourceFile sf = new SourceFile();
+		//对sf进行初始化
+		sf.initFromRs(rs);
+		sourcefiles.add(sf);
 	}
-	
 %>
 <%
+	String username = (String) session.getAttribute("username");
 	String userpassword = (String) session.getAttribute("userpassword");
 	Integer userClass = (Integer) session.getAttribute("userClass");
 	
@@ -190,10 +185,10 @@ body {
 										<a href="BBS/articleFlat.jsp" title="交流社区"><span>交流社区</span>
 										</a>
 										<!-- <a href="onlineExam.jsp" title="剪纸实践"><span>剪纸实践</span> </a>  -->
-										<a href="#" title="我的剪纸"><span>我的剪纸</span> </a>
+										<a href="studyResourceJZ.jsp" title="我的剪纸"><span>我的剪纸</span> </a>
 										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
 										</a>
-										<a href="jpkc.jsp" title="剪纸課程"><span>剪纸課程</span>
+										<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span>
 										</a>
 										<a href="index.jsp" title="首页"><span>首页</span>
 										</a>
@@ -473,7 +468,7 @@ body {
 																						&nbsp;
 																						<span class="STYLE1"
 																							style="color: #FF9900; size: 11">
-																							我的剪纸中心 </span>
+																							剪紙学习资源/剪紙课件下载中心 </span>
 																					</td>
 																					<td width="579" align=right>
 																						<table>
@@ -495,9 +490,7 @@ body {
 																					<TD bgColor=#c4c4ec>
 																						资源名称
 																					</TD>
-																					<TD bgColor=#c4c4ec>
-																						上传者
-																					</TD>
+																				
 																					<TD bgColor=#c4c4ec>
 																						上传时间
 																					</TD>
@@ -506,20 +499,15 @@ body {
 																					</TD>
 																				</TR>
 																				<%
-																					SourceFile sf = new SourceFile();
-																					if(sourcefiles != null){
-																						for(Iterator<SourceFile> it = sourcefiles.iterator(); it.hasNext();) {
-																							sf = new SourceFile();
-																							sf = it.next();
-																					}
+																					for(Iterator<SourceFile> it = sourcefiles.iterator(); it.hasNext();) {
+																						SourceFile sf = new SourceFile();
+																						sf = it.next();
 																				%>
 																				<TR>
 																					<TD width="40%" bgColor=#c4c4ec><%=sf.getFileName() %></TD>
-																					<TD width="15%" bgColor=#c4c4ec><%=sf.getFileDeliver() %></TD>
 																					<TD width="25%" bgColor=#c4c4ec><%=new java.text.SimpleDateFormat("yy-MM-dd").format(sf.getFileDate()) %></TD>
 																					<TD width="20%" bgColor=#c4c4ec>
 																						<a href="astudyResourceJZ.jsp?fileId=<%=sf.getId() %>">下载</a>
-																						<a href="#">预览</a>
 																					</TD>
 																				</TR>
 																				<%
