@@ -1,4 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*,java.sql.*,com.ComputerTrainingPlatform.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 String path = request.getContextPath();
 System.out.println(path);
@@ -27,6 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	DB1.close(rs);
 	DB1.close(stmt);
 	DB1.close(conn);
+%>
+<%
+	String username = (String) session.getAttribute("username");
+	String userpassword = (String) session.getAttribute("userpassword");
+	Integer userClass = (Integer) session.getAttribute("userClass");
+	
 %>
 
 
@@ -210,6 +217,7 @@ body {
 																				<TBODY>
 																					<TR>
 																						<TD align=center bgColor=#efefef>
+																							<!-- 左侧系统登陆表格 -->
 																							<TABLE width="100%" align=center>
 																								<TBODY>
 																									<TR>
@@ -217,8 +225,14 @@ body {
 																											用户名:
 																										</TD>
 																										<TD>
+																										<c:if test="${username == null}">
 																											<INPUT type="text" class=input size=12
-																												name=username>
+																													name=username>
+																										</c:if>
+																										<c:if test="${username != null}">
+																											<INPUT type="text" class=input size=12
+																												name=username value="<%=username%>">
+																										</c:if>
 																										</TD>
 																									</TR>
 																									<TR>
@@ -226,42 +240,89 @@ body {
 																											密码:
 																										</TD>
 																										<TD>
-																											<INPUT class=input type="password" size=12
-																												name=userpassword>
+																										<c:if test="${userpassword == null}">
+																											<INPUT type="password" class=input size=12
+																													name=userpassword>
+																										</c:if>
+																										<c:if test="${userpassword != null}">
+																											<INPUT type="password" class=input size=12
+																												name=userpassword value="<%=userpassword%>">
+																										</c:if>
 																										</TD>
 																									</TR>
 																									<TR>
 																										<TD colSpan=2>
 																											登录身份:
-																											<SELECT id=userClass name=userClass>
-																												<OPTION value=1 selected>
-																													学生
-																												</OPTION>
-																												<OPTION value=2>
-																													教师
-																												</OPTION>
-																												<OPTION value=3>
-																													管理员
-																												</OPTION>
-																											</SELECT>
+																											<c:if test="${userClass == null}">
+																												<SELECT id=userClass name=userClass>
+																													<OPTION value=1 selected>
+																														学生
+																													</OPTION>
+																													<OPTION value=2>
+																														教师
+																													</OPTION>
+																													<OPTION value=3>
+																														管理员
+																													</OPTION>
+																												</SELECT>
+																											</c:if>
+																											<c:if test="${userClass != null and userClass == 1}">
+																												<SELECT id=userClass name=userClass>
+																													<OPTION value=1 selected>
+																														学生
+																													</OPTION>
+																													<OPTION value=2>
+																														教师
+																													</OPTION>
+																													<OPTION value=3>
+																														管理员
+																													</OPTION>
+																												</SELECT>
+																											</c:if>
+																											<c:if test="${userClass != null and userClass == 2}">
+																												<SELECT id=userClass name=userClass>
+																													<OPTION value=1 >
+																														学生
+																													</OPTION>
+																													<OPTION value=2 selected>
+																														教师
+																													</OPTION>
+																													<OPTION value=3>
+																														管理员
+																													</OPTION>
+																												</SELECT>
+																											</c:if>
+																											<c:if test="${userClass != null and userClass == 3}">
+																												<SELECT id=userClass name=userClass>
+																													<OPTION value=1 >
+																														学生
+																													</OPTION>
+																													<OPTION value=2>
+																														教师
+																													</OPTION>
+																													<OPTION value=3 selected>
+																														管理员
+																													</OPTION>
+																												</SELECT>
+																											</c:if>
 																										</TD>
 																									</TR>
 																									<TR>
 																										<TD>
 																											<DIV align=center>
-																												<INPUT class=button type=submit value=确定
+																												<INPUT class=button type=submit value=登陆
 																													name="确定" onClick="isLegal()">
 																											</DIV>
 																										</TD>
 																										<TD>
 																											<DIV align=center>
-																												<INPUT class=button type=reset value=重置
-																													name=重置>
+																												<a href="forgetpassword.jsp">忘记密码</a>
 																											</DIV>
 																										</TD>
 																									</TR>
 																								</TBODY>
 																							</TABLE>
+																							<!-- 左侧系统登陆表格结束 -->
 																						</TD>
 																					</TR>
 																				</TBODY>

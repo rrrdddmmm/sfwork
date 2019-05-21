@@ -188,7 +188,7 @@ body {
 										<a href="studyResourceJZ.jsp" title="我的剪纸"><span>我的剪纸</span> </a>
 										<a href="studyResource.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
 										</a>
-										<a href="jpkc.jsp" title="剪纸学习资源"><span>剪纸学习资源</span>
+										<a href="jpkc.jsp" title="剪纸课程"><span>剪纸课程</span>
 										</a>
 										<a href="index.jsp" title="首页"><span>首页</span>
 										</a>

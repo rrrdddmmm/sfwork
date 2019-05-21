@@ -11,7 +11,7 @@
 	String cont = request.getParameter("cont");
 	System.out.println(cont);
 	String articleTitle = request.getParameter("articleTitle");
-	String url = "http://localhost/ComputerTrainingPlatform/BBS/articleDetailFlat.jsp?id=" + id + "&title=" + articleTitle;
+	String url = "http://localhost:8080/sfwork/BBS/articleDetailFlat.jsp?id=" + id + "&title=" + articleTitle;
 
 	Connection conn = DB.getConn();
 	boolean autoCommit = conn.getAutoCommit();
