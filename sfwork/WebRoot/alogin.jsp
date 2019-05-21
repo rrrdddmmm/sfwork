@@ -33,7 +33,11 @@
 		if (rs.next()) {
 		//设置session，把用户名添加到seesion属性中
 			session.setAttribute("username", username);
-			request.setAttribute("username", username);
+			session.setAttribute("userpassword", userpassword);
+			session.setAttribute("userClass", userClass);
+			request.setAttribute("userpassword", userpassword);
+			System.out.println("userClass:"+userClass);
+			System.out.println("userpassword:"+userpassword);
 			request.setAttribute("userClass", userClass);
 		//判断登陆用户是那种用户类型，如果是1跳转到学生页面student.jsp，
 		//如果是2跳转到教师页面teacher.jsp，如果是3跳转到管理员界面manager.jsp
