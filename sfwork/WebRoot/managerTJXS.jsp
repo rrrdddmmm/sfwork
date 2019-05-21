@@ -194,6 +194,7 @@ function openf(url) {
 							<TD width=236 background=images/left-center-bg2.jpg colSpan=3
 								height=2></TD>
 						</TR>
+						<!-- 
 						<TR>
 							<TD width=236 background=images/left-center-bg1.jpg colSpan=3>
 								<TABLE id=xxzy cellSpacing=0 border=0>
@@ -275,6 +276,7 @@ function openf(url) {
 								</TABLE>
 							</TD>
 						</TR>
+						 -->
 						<TR>
 							<TD width=236 background=images/left-center-bg1.jpg colSpan=3>
 								<TABLE id=jlsq cellSpacing=0 border=0>
